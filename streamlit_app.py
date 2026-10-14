@@ -41,6 +41,9 @@ if time_to_insert:
 
 # New section to display smoothiefroot nutrition information
 import requests
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-st.text(smoothiefroot_response.json())
+try:
+    smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+    st.text(smoothiefroot_response.json())
+except Exception as e:
+    st.error("APIからのデータ取得に失敗しました。時間をおいて再試行してください。")
 
